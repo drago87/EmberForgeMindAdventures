@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./icon.png" alt="Project Logo" width="120">
+</p>
+
 # FableForge
 
 **Build the story. Shape the adventure.**
