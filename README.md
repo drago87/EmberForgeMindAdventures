@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./icon.png" alt="Project Logo" width="120">
+  <img src="./icon.png" alt="Project Logo" width="480">
 </p>
 
 # FableForge
