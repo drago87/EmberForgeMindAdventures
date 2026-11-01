@@ -1,16 +1,16 @@
-<p align="center">
-  <img src="./icon.png" alt="Project Logo" width="480">
+ <p align="center">
+  <img src="./icon.png" alt="EFMA - Ember ForgeMind Adventures Logo" width="480">
 </p>
 
-# FableForge
+# EFMA – Ember ForgeMind Adventures
 
-**Build the story. Shape the adventure.**
+**Forge characters. Shape worlds. Create adventures.**
 
-FableForge is an open-source, AI-powered roleplaying and storytelling platform currently under development.
+EFMA (Ember ForgeMind Adventures) is an open-source, AI-powered roleplaying and storytelling platform currently under development.
 
 The goal is to create an alternative to [SillyTavern](https://github.com/SillyTavern/SillyTavern), with a stronger focus on RPG-style character management, immersive storytelling, and persistent game worlds.
 
-Rather than treating characters as simple chat profiles, FableForge aims to provide structured RPG-style character sheets, allowing users to manage everything from appearance, personality, and equipment to attributes, skills, relationships, and more.
+Rather than treating characters as simple chat profiles, EFMA aims to provide structured RPG-style character sheets, allowing users to manage everything from appearance, personality, and equipment to attributes, skills, relationships, and more.
 
 ## Planned Features
 
@@ -21,7 +21,7 @@ Rather than treating characters as simple chat profiles, FableForge aims to prov
 - **LLM Integration** – Connect to local and remote language models through services such as Ollama, KoboldCpp, and compatible APIs.
 - **Multi-user Support** – Give each user their own characters, scenarios, locations, library, settings, and add-ons.
 - **Add-on System** – Extend the application with user-specific add-ons that can introduce new features, RPG mechanics, interface components, and content.
-- **Desktop & Browser Support** – Run FableForge as a standalone desktop application or access it through a web browser.
+- **Desktop & Browser Support** – Run EFMA as a standalone desktop application or access it through a web browser.
 - **Import & Export** – Support importing and exporting characters and other content to make it easier to move between platforms.
 
 ## Technology
@@ -38,9 +38,9 @@ These technologies and implementation details are subject to change during devel
 
 ## Project Status
 
-<sub>🚧 UNDER CONSTRUCTION 🚧</sub>
+🚧 **UNDER CONSTRUCTION** 🚧
 
-FableForge is currently in the planning and early development stage.
+EFMA is currently in the planning and early development stage.
 
 Features listed above represent the project's goals and planned direction. They are not necessarily implemented or available yet.
 
@@ -48,6 +48,8 @@ Expect significant changes as the project develops. Contributions, ideas, and fe
 
 ## Vision
 
-The vision behind FableForge is to create a flexible platform where users can build characters, create stories, explore locations, and experience evolving RPG adventures with the help of AI.
+The vision behind EFMA is to create a flexible platform where users can build characters, create stories, explore locations, and experience evolving RPG adventures with the help of AI.
 
-**Build the story. Shape the adventure.**
+The aim is to go beyond traditional AI chat-based roleplay by combining character creation, RPG mechanics, world-building, and storytelling into one extensible platform.
+
+**Forge characters. Shape worlds. Create adventures.**
