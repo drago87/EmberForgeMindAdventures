@@ -80,16 +80,16 @@
         <mxCell id="eWQbeKRboxqY9iYm3adU-42" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Quests" vertex="1">
           <mxGeometry height="630" width="200" x="1770" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-73" edge="1" parent="1" source="eWQbeKRboxqY9iYm3adU-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+        <mxCell id="eWQbeKRboxqY9iYm3adU-73" edge="1" parent="eWQbeKRboxqY9iYm3adU-34" source="eWQbeKRboxqY9iYm3adU-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eWQbeKRboxqY9iYm3adU-65">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1990" y="980" />
-              <mxPoint x="2360" y="980" />
-              <mxPoint x="2360" y="160" />
-              <mxPoint x="1410" y="160" />
+              <mxPoint x="1650" y="690" />
+              <mxPoint x="2020" y="690" />
+              <mxPoint x="2020" y="-130" />
+              <mxPoint x="1015" y="-130" />
             </Array>
-            <mxPoint x="2045.0000000000005" y="950" as="sourcePoint" />
-            <mxPoint x="1410.0000000000005" y="340" as="targetPoint" />
+            <mxPoint x="1705" y="660" as="sourcePoint" />
+            <mxPoint x="1070" y="50" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
