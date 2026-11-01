@@ -13,7 +13,7 @@
           <mxGeometry height="60" width="120" x="990" y="40" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-34" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="&lt;div&gt;Base GUI&lt;/div&gt;" vertex="1">
-          <mxGeometry height="650" width="2550" x="340.00000000000045" y="290" as="geometry" />
+          <mxGeometry height="650" width="1640" x="340.00000000000045" y="290" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-35" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;html=1;" value="Chats" vertex="1">
           <mxGeometry height="630" width="120" y="20" as="geometry">
@@ -21,58 +21,43 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-43" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="Characters GUI" vertex="1">
-          <mxGeometry height="630" width="1750" x="120" y="20" as="geometry" />
+          <mxGeometry height="630" width="880" x="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-1" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="Identity" vertex="1">
-          <mxGeometry height="610" width="220" y="20" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-33" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;html=1;" value="Identity" vertex="1">
+          <mxGeometry height="610" width="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-2" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Name" vertex="1">
-          <mxGeometry height="50" width="220" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-5" parent="AtkX8Bh1b1J2PhM9cXgF-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The name of the character" vertex="1">
-          <mxGeometry height="50" width="200" x="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-3" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Age" vertex="1">
-          <mxGeometry height="70" width="220" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-6" parent="AtkX8Bh1b1J2PhM9cXgF-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;The age of the character&lt;/div&gt;" vertex="1">
-          <mxGeometry height="70" width="200" x="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-4" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Gender" vertex="1">
-          <mxGeometry height="80" width="220" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-12" parent="AtkX8Bh1b1J2PhM9cXgF-4" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The gender of the character" vertex="1">
-          <mxGeometry height="80" width="200" x="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-13" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Species" vertex="1">
-          <mxGeometry height="80" width="220" y="220" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-7" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="Appearance" vertex="1">
-          <mxGeometry height="610" width="480" x="220" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-8" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Hair Style" vertex="1">
-          <mxGeometry height="120" width="480" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-9" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Hair Color" vertex="1">
-          <mxGeometry height="120" width="480" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-10" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Lane 3" vertex="1">
-          <mxGeometry height="120" width="480" y="260" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-32" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;html=1;" value="Appearance" vertex="1">
+          <mxGeometry height="610" width="120" x="120" y="20" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-46" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;html=1;" value="Personality" vertex="1">
-          <mxGeometry height="610" width="120" x="700" y="20" as="geometry" />
+          <mxGeometry height="610" width="120" x="240" y="20" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-50" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;" value="Background" vertex="1">
-          <mxGeometry height="610" width="90" x="820" y="20" as="geometry" />
+          <mxGeometry height="610" width="90" x="360" y="20" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-52" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;" value="AI instructions" vertex="1">
-          <mxGeometry height="610" width="110" x="910" y="20" as="geometry" />
+          <mxGeometry height="610" width="110" x="450" y="20" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-53" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;" value="Attributes and skills" vertex="1">
-          <mxGeometry height="610" width="120" x="1020" y="20" as="geometry" />
+          <mxGeometry height="610" width="120" x="560" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-65" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="Equipment and inventory" vertex="1">
-          <mxGeometry height="610" width="610" x="1140" y="20" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-31" parent="eWQbeKRboxqY9iYm3adU-43" style="swimlane;startSize=20;" value="Equipment and inventory" vertex="1">
+          <mxGeometry height="610" width="200" x="680" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eWQbeKRboxqY9iYm3adU-37" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;html=1;" value="Scenarios" vertex="1">
+          <mxGeometry height="630" width="120" x="1000" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eWQbeKRboxqY9iYm3adU-39" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Locations" vertex="1">
+          <mxGeometry height="630" width="120" x="1120" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-37" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Items" vertex="1">
+          <mxGeometry height="630" width="200" x="1240" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eWQbeKRboxqY9iYm3adU-42" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Quests" vertex="1">
+          <mxGeometry height="630" width="200" x="1440" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eWQbeKRboxqY9iYm3adU-65" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="Equipment and inventory" vertex="1">
+          <mxGeometry height="610" width="610" x="1290.0000000000005" y="1010" as="geometry" />
         </mxCell>
         <mxCell id="eWQbeKRboxqY9iYm3adU-66" parent="eWQbeKRboxqY9iYm3adU-65" style="swimlane;startSize=20;html=1;" value="Other Garments" vertex="1">
           <mxGeometry height="590" width="120" y="20" as="geometry" />
@@ -110,14 +95,62 @@
         <mxCell id="eWQbeKRboxqY9iYm3adU-68" parent="eWQbeKRboxqY9iYm3adU-65" style="swimlane;startSize=20;html=1;" value="Items" vertex="1">
           <mxGeometry height="590" width="120" x="490" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-37" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;html=1;" value="Scenarios" vertex="1">
-          <mxGeometry height="630" width="120" x="1870" y="20" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-7" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="Appearance" vertex="1">
+          <mxGeometry height="410" width="480" x="710" y="1020" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-39" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Locations" vertex="1">
-          <mxGeometry height="630" width="120" x="1990" y="20" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-8" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Hair Style" vertex="1">
+          <mxGeometry height="150" width="480" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-60" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="&lt;div&gt;Items&lt;/div&gt;" vertex="1">
-          <mxGeometry height="630" width="240" x="2110" y="20" as="geometry">
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-39" parent="AtkX8Bh1b1J2PhM9cXgF-8" style="swimlane;flipH=0;legacyAnchorPoints=0;flipV=0;direction=east;" value="Type" vertex="1">
+          <mxGeometry height="150" width="230" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-40" parent="AtkX8Bh1b1J2PhM9cXgF-8" style="swimlane;" value="Description" vertex="1">
+          <mxGeometry height="150" width="230" x="250" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-9" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Hair Color" vertex="1">
+          <mxGeometry height="120" width="480" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-10" parent="AtkX8Bh1b1J2PhM9cXgF-7" style="swimlane;startSize=20;horizontal=0;html=1;" value="Lane 3" vertex="1">
+          <mxGeometry height="120" width="480" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-1" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="Identity" vertex="1">
+          <mxGeometry height="300" width="220" x="410.00000000000045" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-2" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Name" vertex="1">
+          <mxGeometry height="50" width="220" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-5" parent="AtkX8Bh1b1J2PhM9cXgF-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The name of the character" vertex="1">
+          <mxGeometry height="50" width="200" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-3" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Age" vertex="1">
+          <mxGeometry height="70" width="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-6" parent="AtkX8Bh1b1J2PhM9cXgF-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;The age of the character&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-4" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Gender" vertex="1">
+          <mxGeometry height="80" width="220" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-12" parent="AtkX8Bh1b1J2PhM9cXgF-4" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The gender of the character" vertex="1">
+          <mxGeometry height="80" width="200" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-13" parent="AtkX8Bh1b1J2PhM9cXgF-1" style="swimlane;startSize=20;horizontal=0;html=1;" value="Species" vertex="1">
+          <mxGeometry height="80" width="220" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-14" parent="AtkX8Bh1b1J2PhM9cXgF-13" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The species of the character" vertex="1">
+          <mxGeometry height="80" width="200" x="19.999999999999545" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-34" edge="1" parent="1" source="AtkX8Bh1b1J2PhM9cXgF-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="AtkX8Bh1b1J2PhM9cXgF-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-35" edge="1" parent="1" source="AtkX8Bh1b1J2PhM9cXgF-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="AtkX8Bh1b1J2PhM9cXgF-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-36" edge="1" parent="1" source="AtkX8Bh1b1J2PhM9cXgF-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eWQbeKRboxqY9iYm3adU-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eWQbeKRboxqY9iYm3adU-60" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="&lt;div&gt;Items&lt;/div&gt;" vertex="1">
+          <mxGeometry height="630" width="240" x="2030.0000000000005" y="1010" as="geometry">
             <mxRectangle height="630" width="40" x="1530" y="20" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -130,11 +163,8 @@
         <mxCell id="eWQbeKRboxqY9iYm3adU-72" parent="eWQbeKRboxqY9iYm3adU-62" style="swimlane;startSize=20;" value="Item2" vertex="1">
           <mxGeometry height="590" width="120" x="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="eWQbeKRboxqY9iYm3adU-42" parent="eWQbeKRboxqY9iYm3adU-34" style="swimlane;startSize=20;" value="Quests" vertex="1">
-          <mxGeometry height="630" width="200" x="2350" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="The species of the character" vertex="1">
-          <mxGeometry height="80" width="200" x="480" y="550" as="geometry" />
+        <mxCell id="AtkX8Bh1b1J2PhM9cXgF-38" edge="1" parent="1" source="AtkX8Bh1b1J2PhM9cXgF-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eWQbeKRboxqY9iYm3adU-60">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
