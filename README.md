@@ -1,8 +1,8 @@
+# EFMA – Ember ForgeMind Adventures
+ 
  <p align="center">
   <img src="./icon.png" alt="EFMA - Ember ForgeMind Adventures Logo" width="480">
 </p>
-
-# EFMA – Ember ForgeMind Adventures
 
 **Forge characters. Shape worlds. Create adventures.**
 
