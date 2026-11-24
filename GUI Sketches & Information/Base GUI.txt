@@ -1,0 +1,30 @@
+Latout
+	Topbar:
+		From Left: Icon -> EMFA (Name of the app) | Chat Sessions -> Characters -> Scenarios -> Locations | Assets -> Game Mechanics -> Knowlage | Add-ons -> AI Settings | *Status (Connected (green) or Disconnected (red)) -> user icon -> Settings
+		`|` is a spacer
+		Pressing any of the buttons from `Chat Sessions` to `AI Settings` should open a popup or overlay in the center (The topbar should always be vissible while the rest of the screen should be vissible but musted in the background)
+		Pressing the user icon should show a dropdown with settings reguarding that user (admin acounts should have a button in the dropdown to open an overlay for admin controlls where they can change/add/remove outher users)
+		Pressing the settings button should open an overlay with settings for the app (visuals and other settings, these should be user specific)
+		
+	Background (Could be dependant on location)
+	
+	Left:
+		Character avatar
+		
+	Center:
+		Chat window:
+			Top: Name of the chat, button to rename, remove the chat (both should probelby be in a sub-menu)
+			Each message should have a button to open a sub menu with things that can be done with that message (edit, remove hide etc..)
+			Bottom:
+				To the far left buttons to change the chat mode (Direct, guided, narrated etc..)
+				To the right of that a sub menu with things that can be done to the chat (multi-message removal, common commands etc..)
+				The input should be in the centre as a expanding multi-line input (should start as 1 line but expands as the user types (new-line and word-wrap))
+				The different send buttons should be to the right of the inputfield (Normal (shortcut ctrl+enter), swap etc..)
+	
+	Right:
+		Characters included in the cirrentsession
+		Each character should have:
+			Character Icon
+			Button to set as current speaker
+			field to show current location
+			button to open the characters inventory and equipment/outfit
