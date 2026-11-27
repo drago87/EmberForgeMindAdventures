@@ -5,7 +5,7 @@ from fastapi import FastAPI, Request, Depends, HTTPException, status, Form
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.sessions import SessionMiddleware
+from starlette.middleware.sessions import SessionMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -74,7 +74,15 @@ SECRET_KEY = "efma-secret-key"  # In production replace with secure random
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 
 # CORS (allow local host only by default)
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8000"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+SERVER_PORT = get_server_port(config)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[f"http://localhost:{SERVER_PORT}"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # IP Whitelist middleware
 class IPWhitelistMiddleware(BaseHTTPMiddleware):
