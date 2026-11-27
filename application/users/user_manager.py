@@ -1,8 +1,8 @@
 from datetime import datetime
 from passlib.hash import bcrypt
 
-from .database import SessionLocal
-from .models import User
+from ..database.database import SessionLocal
+from ..database.models import User
 
 
 

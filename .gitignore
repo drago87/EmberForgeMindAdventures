@@ -9,3 +9,45 @@ Diagrams/
 
 # misc
 env/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Testing and cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Environment variables and secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local application data
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Python cache
+__pycache__/

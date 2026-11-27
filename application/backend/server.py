@@ -10,7 +10,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from ..authentication import (
+from .authentication import (
     get_current_user_obj,
     is_admin,
     login_user,

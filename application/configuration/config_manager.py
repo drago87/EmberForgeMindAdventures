@@ -4,12 +4,11 @@ import ast
 
 DEFAULT_CONFIG = """[SERVER]
 host = 127.0.0.1
-port = 8000
+port = 8013
 
 [SECURITY]
-ip_whitelist = [
-127.0.0.1
-]
+# Comma seperated list
+ip_whitelist = 127.0.0.1
 
 [GUI]
 default_language = en
@@ -34,20 +33,18 @@ def create_default_config(path: str) -> None:
             f.write(DEFAULT_CONFIG)
 
 
-def get_ip_whitelist(cfg: configparser.ConfigParser) -> list[str]:
-    """Return a list of IP addresses allowed to connect.
+def get_ip_whitelist(config):
+    ips = config.get(
+        "SECURITY",
+        "ip_whitelist",
+        fallback="127.0.0.1"
+    )
 
-    The values are stored in the config as a Python list literal
-    inside the ``ip_whitelist`` option.  The function safely
-    evaluates the string.
-    """
-    if cfg.has_option("SECURITY", "ip_whitelist"):
-        raw = cfg.get("SECURITY", "ip_whitelist")
-        try:
-            return ast.literal_eval(raw)
-        except Exception:
-            return []
-    return []
+    return [
+        ip.strip()
+        for ip in ips.split(",")
+        if ip.strip()
+    ]
 
 
 def get_default_language(cfg: configparser.ConfigParser) -> str:
