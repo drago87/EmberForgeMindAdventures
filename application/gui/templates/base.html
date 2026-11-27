@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title or t('app_name') }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/main.js" defer></script>
+</head>
+<body>
+    <div id="loading-screen"><img src="/static/icons/efma.png" class="loading-icon"></div>
+    <header id="topbar">
+        <div class="left">
+            <a href="/" class="icon-button" title="Open GitHub" target="_blank" onclick="openGithub(event)">
+                <img src="/static/icons/efma.png" alt="EFMA" width="24" height="24">
+            </a>
+            <span class="app-name">{{ t('app_name') }}</span>
+            <div class="separator"></div>
+            {% for btn in nav_buttons %}
+                <a href="#" class="nav-button">{{ t(btn) }}</a>
+            {% endfor %}
+        </div>
+        <div class="right">
+            <div id="connection-status" title="{{ t('connection_status_disconnected') }}" class="status disconnected"></div>
+            <div class="user-menu">
+                <img src="{{ user_icon or '/static/icons/efma.png' }}" alt="User" class="user-icon" onclick="toggleUserDropdown(event)">
+                <div id="user-dropdown" class="dropdown hidden">
+                    <a href="/settings">{{ t('settings') }}</a>
+                    {% if is_admin %}
+                        <a href="/users">{{ t('users') }}</a>
+                    {% endif %}
+                    <a href="/logout">{{ t('logout') }}</a>
+                </div>
+            </div>
+            <div class="settings-icon" onclick="toggleSettingsOverlay(event)">⚙️</div>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <div id="settings-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <h2>{{ t('settings') }}</h2>
+            <form id="settings-form" method="post" action="/settings">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <label>{{ t('language') }}:
+                    <select name="language" id="lang-select">
+                        {% for lang_code in languages %}
+                            <option value="{{ lang_code }}" {% if lang_code == lang %}selected{% endif %}>{{ languages[lang_code] }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>{{ t('theme') }}:
+                    <select name="theme" id="theme-select">
+                        <option value="light" {% if theme == 'light' %}selected{% endif %}>{{ t('theme_light') }}</option>
+                        <option value="dark" {% if theme == 'dark' %}selected{% endif %}>{{ t('theme_dark') }}</option>
+                    </select>
+                </label>
+                <button type="submit">Save</button>
+            </form>
+            <button onclick="toggleSettingsOverlay(event)">Close</button>
+        </div>
+    </div>
+</body>
+</html>

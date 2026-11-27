@@ -1,30 +1,824 @@
-Latout
-	Topbar:
-		From Left: Icon -> EMFA (Name of the app) | Chat Sessions -> Characters -> Scenarios -> Locations | Assets -> Game Mechanics -> Knowlage | Add-ons -> AI Settings | *Status (Connected (green) or Disconnected (red)) -> user icon -> Settings
-		`|` is a spacer
-		Pressing any of the buttons from `Chat Sessions` to `AI Settings` should open a popup or overlay in the center (The topbar should always be vissible while the rest of the screen should be vissible but musted in the background)
-		Pressing the user icon should show a dropdown with settings reguarding that user (admin acounts should have a button in the dropdown to open an overlay for admin controlls where they can change/add/remove outher users)
-		Pressing the settings button should open an overlay with settings for the app (visuals and other settings, these should be user specific)
-		
-	Background (Could be dependant on location)
-	
-	Left:
-		Character avatar
-		
-	Center:
-		Chat window:
-			Top: Name of the chat, button to rename, remove the chat (both should probelby be in a sub-menu)
-			Each message should have a button to open a sub menu with things that can be done with that message (edit, remove hide etc..)
-			Bottom:
-				To the far left buttons to change the chat mode (Direct, guided, narrated etc..)
-				To the right of that a sub menu with things that can be done to the chat (multi-message removal, common commands etc..)
-				The input should be in the centre as a expanding multi-line input (should start as 1 line but expands as the user types (new-line and word-wrap))
-				The different send buttons should be to the right of the inputfield (Normal (shortcut ctrl+enter), swap etc..)
-	
-	Right:
-		Characters included in the cirrentsession
-		Each character should have:
-			Character Icon
-			Button to set as current speaker
-			field to show current location
-			button to open the characters inventory and equipment/outfit
+# EFMA – Base GUI Design Specification
+
+## 1. General Overview
+
+EFMA (Ember ForgeMind Adventures) is a desktop-oriented application designed for creating, managing, and running interactive RPG experiences with the assistance of AI models.
+
+The Base GUI provides the main application framework and navigation structure used throughout EFMA.
+
+The application must use a **persistent workspace with an overlay-based navigation system**.
+
+This means that the main workspace, including the currently active Chat Session, should remain in place when the user opens other parts of EFMA.
+
+Other interfaces must open as popups, overlays, panels or modal windows rather than replacing the current workspace.
+
+The application should use a consistent dark-mode visual design.
+
+The main navigation provides access to the following sections:
+
+1. Chat Sessions
+2. Characters
+3. Scenarios
+4. Locations
+5. Assets
+6. Game Mechanics
+7. Knowledge
+8. Add-ons
+9. AI Settings
+
+The interface should be modular, with individual sections having their own functionality while sharing the same overall application framework.
+
+---
+
+## 2. Core Application Architecture
+
+The EFMA interface consists of three primary layers:
+
+1. Persistent Top Navigation Bar.
+2. Persistent Main Workspace.
+3. Popups and Overlays.
+
+These layers have different responsibilities and should remain visually and functionally distinct.
+
+### 2.1 Persistent Top Navigation Bar
+
+The Top Navigation Bar must always remain visible during normal application use.
+
+It must not disappear when opening other sections, popups, overlays or modal windows.
+
+It provides access to the main application sections and application-wide controls.
+
+### 2.2 Persistent Main Workspace
+
+The Main Workspace is the primary working area of EFMA.
+
+The currently active Chat Session should remain in this workspace while the user opens other application interfaces.
+
+The workspace should preserve its current state when overlays are opened or closed.
+
+For example, if the user is viewing a conversation halfway through its message history, opening Characters and subsequently closing it should return the user to the same position in the conversation.
+
+The following should be preserved:
+
+- Active Chat Session.
+- Conversation history and scroll position.
+- Current character and speaker state.
+- Current input content.
+- Other relevant unsaved workspace state.
+
+The Main Workspace must not be replaced simply because the user clicks another navigation button.
+
+### 2.3 Popups and Overlays
+
+All other EFMA interfaces should be opened as popups or overlays over the Main Workspace.
+
+Examples include:
+
+- Characters.
+- Scenarios.
+- Locations.
+- Assets.
+- Game Mechanics.
+- Knowledge.
+- Add-ons.
+- AI Settings.
+- User settings.
+- General application settings.
+
+The underlying workspace should remain intact.
+
+Overlays should be able to display more complex interfaces without requiring the user to leave their current workspace.
+
+Depending on the interface, an overlay may use:
+
+- A small popup.
+- A medium-sized panel.
+- A large panel.
+- A nearly full-screen overlay.
+
+The size should be appropriate for the functionality being displayed.
+
+Overlays should support closing and returning to the previous view.
+
+When an overlay is closed, the application should return to the previous workspace state.
+
+### 2.4 Overlay Behaviour
+
+The overlay system should support:
+
+- Opening an interface over the current workspace.
+- Closing an overlay.
+- Preserving the underlying workspace state.
+- Opening another overlay when appropriate.
+- Returning to a previously opened interface.
+- Preventing accidental loss of unsaved work.
+
+Multiple overlays may be open simultaneously when appropriate.
+
+However, the interface should avoid unnecessary visual clutter.
+
+An overlay should clearly indicate that it is a separate interface displayed above the workspace.
+
+### 2.5 Important Navigation Rule
+
+**Navigation buttons must not behave like conventional webpage navigation links.**
+
+Clicking Characters should not replace the Main Workspace with the Characters interface.
+
+Instead, it should open the Characters interface as an overlay.
+
+The same principle applies to Scenarios, Locations, Assets, Game Mechanics, Knowledge, Add-ons and AI Settings.
+
+Chat Sessions are different because they manage the actual working sessions.
+
+Opening or selecting another Chat Session may change which session is active in the Main Workspace, but it must not cause the loss of the previous session's state.
+
+---
+
+## 3. Overall Application Layout
+
+The application is divided into:
+
+- Top Navigation Bar.
+- Main Workspace.
+- Overlay Layer.
+
+The Top Navigation Bar remains fixed at the top of the application.
+
+The Main Workspace occupies the remaining available screen space.
+
+The Overlay Layer is displayed above the Main Workspace whenever the user opens another interface.
+
+### 3.1 Top Navigation Bar
+
+The Top Navigation Bar is divided into three visual sections.
+
+**Left section – Application identity**
+
+Contains:
+
+- EFMA application icon.
+- EFMA application name.
+
+The application icon should be displayed to the left of the application name.
+
+**Middle section – Main navigation**
+
+Contains buttons for:
+
+- Chat Sessions
+- Characters
+- Scenarios
+- Locations
+- Assets
+- Game Mechanics
+- Knowledge
+- Add-ons
+- AI Settings
+
+The buttons should be arranged horizontally.
+
+For organizational purposes, they should be visually separated into groups.
+
+Group 1:
+- Chat Sessions
+- Characters
+- Scenarios
+- Locations
+
+Group 2:
+- Assets
+- Game Mechanics
+- Knowledge
+
+Group 3:
+- Add-ons
+- AI Settings
+
+The navigation buttons should have clear hover and active states.
+
+The currently active Chat Session should remain identifiable even when another overlay is open.
+
+**Right section – Application status and settings**
+
+Contains:
+
+- Connection status indicator.
+- User settings/profile button.
+- General application settings button.
+
+The connection indicator should display the current connection state.
+
+Examples:
+
+- Green: Connected.
+- Red: Disconnected.
+- Yellow: Connecting or experiencing a connection issue.
+
+The user settings button should provide access to user-related settings and the user's profile/icon.
+
+The general settings button should provide access to application-wide configuration.
+
+Both settings interfaces should open as overlays.
+
+### 3.2 Main Workspace
+
+The Main Workspace is where the user performs their primary work.
+
+The default workspace should display the active Chat Session.
+
+It should contain the Chat Sessions interface described in Section 4.
+
+The workspace must remain present when other interfaces are opened.
+
+The workspace should not be reloaded or recreated unnecessarily when an overlay is opened or closed.
+
+### 3.3 Overlay Layer
+
+The Overlay Layer is a separate visual layer above the Main Workspace.
+
+It is responsible for displaying other EFMA interfaces.
+
+The layer should be capable of displaying different interface sizes depending on the purpose of the opened section.
+
+For example:
+
+- A small confirmation dialog.
+- A character editing interface.
+- An Asset management interface.
+- A large AI Settings interface.
+
+The underlying workspace should remain preserved.
+
+The overlay system should be designed as a reusable application component rather than implementing separate popup systems for each section.
+
+---
+
+## 4. Chat Sessions Interface
+
+The Chat Sessions interface is the default Main Workspace.
+
+It consists of four primary areas:
+
+1. Character portrait area.
+2. Chat conversation area.
+3. Active character sidebar.
+4. Chat input and controls.
+
+### 4.1 Character Portrait Area
+
+Position: Left side of the Main Workspace.
+
+This area displays the portrait of the currently selected character.
+
+The portrait should occupy a relatively large vertical area.
+
+Its purpose is to provide a visual representation of the character currently being displayed or interacted with.
+
+The portrait should be updated when the relevant character changes.
+
+The portrait area should be visually separate from the conversation area.
+
+### 4.2 Chat Background
+
+The background of the chat interface should be customizable.
+
+It can use either:
+
+- A generic background.
+- A background associated with the current Location.
+
+When a Location has an associated background image, the chat interface should be able to use that image.
+
+The background should not make conversation text difficult to read.
+
+### 4.3 Chat Header
+
+Position: Above the conversation history.
+
+Contains:
+
+- Chat Session name.
+- Edit Chat Session name button.
+
+The Chat Session name should be displayed prominently.
+
+The edit button should allow the user to change the name of the current Chat Session.
+
+### 4.4 Conversation Area
+
+Position: Center of the interface.
+
+This is the main area where the conversation between the user and AI-controlled characters is displayed.
+
+Messages should be presented as individual message blocks.
+
+Each message block should contain:
+
+- Character portrait/icon.
+- Character name.
+- Character actions and speech.
+- A message-specific options button.
+
+The character name should be displayed in the message header.
+
+The message body should contain the character's actions, descriptions, dialogue and other generated content.
+
+Messages should visually distinguish different characters.
+
+For example:
+
+Character 1:
+- Character name.
+- Character 1's actions and speech.
+
+Character 2:
+- Character name.
+- Character 2's actions and speech.
+- This can include reactions to the previous character's message.
+
+The conversation should support multiple characters participating in the same Chat Session.
+
+Messages should appear in chronological order, with newer messages added to the conversation.
+
+The conversation area should support scrolling independently from the other interface areas.
+
+### 4.5 Message Options
+
+Each message should have an options button.
+
+This button should provide access to actions associated with that particular message.
+
+The exact available actions can be implemented separately, but the interface should reserve space for message-specific controls.
+
+### 4.6 Active Character Sidebar
+
+Position: Right side of the Chat Sessions interface.
+
+This sidebar displays all characters currently participating in the active Chat Session.
+
+The sidebar should display each character as an individual entry.
+
+Each entry should contain:
+
+- Character portrait/icon.
+- Character name.
+- Character Location.
+
+The Location should be displayed for each character, except for the Narrator.
+
+**Narrator requirement:**
+
+Every active Chat Session must always contain a Narrator character.
+
+The Narrator is a special participant responsible for narration and other appropriate narrative functions.
+
+The Narrator should always be present in the active character list and should not be treated as an ordinary character that can simply be removed from the session.
+
+### 4.7 Next Speaker Selection
+
+The Active Character Sidebar should also provide functionality for controlling which character speaks next.
+
+The interface must:
+
+- Indicate which character is scheduled to speak next.
+- Provide a way for the user to select which character should speak next.
+- Make the selected next speaker visually distinguishable from the other characters.
+
+This is important because the user should have control over the conversation flow.
+
+The next speaker indication should remain visible without requiring the user to open another interface.
+
+### 4.8 Character Equipment and Inventory Access
+
+The Active Character Sidebar should provide buttons for accessing information about each character's equipment and inventory.
+
+The user should be able to inspect:
+
+- Items carried by the character.
+- Equipped items.
+- Current outfit.
+- Other relevant equipment information.
+
+These controls should open the appropriate character-related information without requiring the user to leave the active Chat Session.
+
+Where a larger interface is required, it may open as an overlay over the workspace.
+
+### 4.9 Chat Input Area
+
+Position: Bottom of the conversation area.
+
+The input area should remain accessible while the user navigates through the conversation history.
+
+It consists of three parts.
+
+**A. Chat Mode Controls**
+
+A small group of buttons positioned to the left of the text input.
+
+These buttons should provide access to the available Chat Session interaction modes.
+
+The exact number and functionality of these buttons can be determined separately.
+
+**B. Text Input**
+
+A large text input field where the user enters messages, instructions, actions or other prompts.
+
+**C. Send Controls**
+
+A button area positioned to the right of the input field.
+
+This area should contain the controls required to submit the user's input.
+
+The interface should visually separate the text input from the sending controls.
+
+---
+
+## 5. Visual Design and Dark Mode
+
+The entire application should use a consistent dark-mode design.
+
+The original Base GUI image is a black-and-white wireframe. It communicates the layout and hierarchy rather than the final visual styling.
+
+The Draw.io diagram provides additional information about EFMA's modular structure and component organization.
+
+The final implementation should translate these structural elements into a cohesive dark-mode interface.
+
+### 5.1 General Appearance
+
+The visual style should be:
+
+- Modern.
+- Clean.
+- Functional.
+- Dark.
+- Modular.
+- Easy to navigate.
+
+Avoid excessive decoration.
+
+The interface should prioritize functionality and readability over visual effects.
+
+### 5.2 Suggested Colour Scheme
+
+Use a dark neutral colour palette.
+
+| Element | Suggested colour |
+|---|---|
+| Main application background | #15171B |
+| Navigation background | #202329 |
+| Panel background | #252930 |
+| Secondary panel background | #2D323A |
+| Primary text | #E6E8EB |
+| Secondary text | #A5ABB4 |
+| Borders and separators | #414752 |
+| Primary accent | #8B78D6 |
+| Success indicator | #43B581 |
+| Warning indicator | #E5B454 |
+| Error indicator | #D95C5C |
+
+These colours are suggestions and can be adjusted during implementation.
+
+### 5.3 Panels and Containers
+
+Use panels to visually separate different functional areas.
+
+Examples include:
+
+- Character portrait panel.
+- Conversation panel.
+- Character sidebar.
+- Input panel.
+- Navigation bar.
+- Overlay containers.
+
+Panels should have consistent spacing, border treatment and corner radii.
+
+Avoid excessive borders around every individual element.
+
+Use subtle differences in background colour to establish visual hierarchy.
+
+### 5.4 Buttons
+
+Buttons should have consistent styling throughout EFMA.
+
+They should support:
+
+- Normal state.
+- Hover state.
+- Active/selected state.
+- Disabled state.
+
+Primary actions should be visually distinguishable from secondary actions.
+
+Icon-only buttons should have tooltips explaining their functionality.
+
+### 5.5 Typography
+
+Use a clean and readable sans-serif font.
+
+Different text sizes and weights should establish a clear hierarchy:
+
+- Application and section titles.
+- Panel headings.
+- Character names.
+- Conversation text.
+- Secondary information.
+- Tooltips and metadata.
+
+Conversation text should prioritize readability.
+
+### 5.6 Icons
+
+Use a consistent icon style throughout the application.
+
+Icons should communicate functionality clearly.
+
+Examples include:
+
+- Application logo.
+- User profile.
+- Settings.
+- Edit.
+- Menu.
+- Send.
+- Character-related actions.
+
+Avoid mixing significantly different icon styles.
+
+### 5.7 Overlay Appearance
+
+Overlays should visually distinguish themselves from the underlying workspace.
+
+Use a combination of:
+
+- A clearly defined overlay container.
+- Appropriate background contrast.
+- Consistent panel styling.
+- A visible close button.
+- Clear interface headings.
+
+For larger overlays, the background workspace may be slightly dimmed to establish visual hierarchy.
+
+However, the underlying workspace should remain recognizable whenever practical.
+
+Avoid making every overlay unnecessarily full-screen.
+
+---
+
+## 6. Layout and Resizing
+
+The application should be designed primarily for desktop use.
+
+The interface should adapt to different window sizes.
+
+### 6.1 Top Navigation
+
+The Top Navigation Bar should remain visible when the window is resized.
+
+The navigation buttons should remain accessible.
+
+If horizontal space becomes insufficient, the navigation may adapt using a suitable responsive arrangement, but should not disappear.
+
+### 6.2 Main Workspace
+
+The Chat Sessions interface should maintain its three-column structure where sufficient space is available:
+
+- Left: Character portrait.
+- Center: Conversation and input.
+- Right: Active character sidebar.
+
+The central conversation area should receive the majority of the available horizontal space.
+
+The character portrait and active character sidebar should have adjustable widths where appropriate.
+
+When the window becomes too narrow, the interface should adapt without allowing the conversation area to become unusable.
+
+### 6.3 Overlay Resizing
+
+Overlays should adapt to the available application window size.
+
+Small interfaces should remain compact.
+
+More complex interfaces may occupy a larger portion of the screen.
+
+Nearly full-screen overlays should still preserve the underlying workspace and allow the user to return to it.
+
+### 6.4 Independent Scrolling
+
+Scrolling should be handled independently wherever appropriate.
+
+For example:
+
+- Conversation history.
+- Active character list.
+- Overlay content.
+- Character information panels.
+
+Opening an overlay should not reset the scroll position of the underlying workspace.
+
+---
+
+## 7. Application-Wide Design Consistency
+
+All EFMA sections should share the same visual foundation.
+
+The following elements should remain consistent:
+
+- Top navigation bar.
+- Application icon and identity.
+- Connection status.
+- User settings access.
+- General settings access.
+- Typography.
+- Colour palette.
+- Button styling.
+- Panel styling.
+- Spacing conventions.
+- Icon conventions.
+- Overlay behaviour.
+
+Individual sections may introduce additional controls and layouts depending on their purpose.
+
+The Characters section, for example, can have a more complex editing interface with several character information categories.
+
+The Draw.io diagram illustrates this modular approach, including separate character areas for:
+
+- Identity.
+- Appearance.
+- Personality.
+- Background.
+- AI instructions.
+- Attributes and skills.
+- Equipment and inventory.
+
+These sections should use layouts appropriate to their functionality while maintaining the same application-wide design language.
+
+They should be opened as overlays rather than replacing the Main Workspace.
+
+---
+
+## 8. Implementation Priorities
+
+The initial implementation should focus on establishing the Base GUI architecture rather than implementing every feature.
+
+### Phase 1 – Base GUI Structure
+
+Implement:
+
+1. Main application window.
+2. Persistent Top Navigation Bar.
+3. EFMA application icon and name.
+4. All nine navigation buttons.
+5. Connection status indicator.
+6. User settings/profile button.
+7. General settings button.
+8. Persistent Main Workspace.
+9. Overlay Layer.
+10. Basic overlay opening and closing functionality.
+11. Consistent dark-mode styling.
+
+At this stage, the navigation buttons do not need to perform their actual functions.
+
+However, the distinction between workspace and overlays must already exist in the architecture.
+
+The purpose is to establish the visual and structural foundation of EFMA.
+
+### Phase 2 – Chat Sessions Layout
+
+Implement the visual structure of the Chat Sessions interface:
+
+1. Character portrait area.
+2. Chat Session header.
+3. Conversation history.
+4. Individual message blocks.
+5. Active character sidebar.
+6. Chat input area.
+7. Chat mode controls.
+8. Send controls.
+
+Use placeholder data where necessary.
+
+The Chat Sessions interface should be displayed in the persistent Main Workspace.
+
+### Phase 3 – Overlay Framework
+
+Implement the reusable overlay system.
+
+1. Overlay container.
+2. Overlay opening and closing.
+3. Multiple overlay support where appropriate.
+4. Different overlay sizes.
+5. Overlay stacking and focus management.
+6. Preservation of workspace state.
+7. Preservation of scroll position.
+8. Protection of unsaved input and work.
+
+### Phase 4 – Navigation Integration
+
+Connect the navigation buttons to the overlay framework.
+
+Implement the ability to open:
+
+- Characters.
+- Scenarios.
+- Locations.
+- Assets.
+- Game Mechanics.
+- Knowledge.
+- Add-ons.
+- AI Settings.
+
+The Chat Sessions navigation should provide access to Chat Session selection and management.
+
+Switching the active Chat Session should preserve the previous session's data and state.
+
+### Phase 5 – Chat Session Interaction
+
+Implement:
+
+1. Character listing.
+2. Mandatory Narrator presence.
+3. Next speaker indication.
+4. Manual next speaker selection.
+5. Character equipment and inventory access.
+6. Chat Session name editing.
+7. Message-specific options.
+
+### Phase 6 – Integration
+
+Connect the GUI to the underlying EFMA functionality.
+
+The interface should use actual application data rather than placeholder content.
+
+---
+
+## 9. Important Architectural Rules
+
+The following requirements must be respected during implementation.
+
+**Rule 1 – Persistent Top Navigation**
+
+The Top Navigation Bar must always remain visible during normal application use.
+
+**Rule 2 – Persistent Main Workspace**
+
+The currently active Chat Session must remain in the Main Workspace when other interfaces are opened.
+
+**Rule 3 – Overlay-Based Navigation**
+
+Characters, Scenarios, Locations, Assets, Game Mechanics, Knowledge, Add-ons and AI Settings must open as overlays, not as replacements for the Main Workspace.
+
+**Rule 4 – Workspace State Preservation**
+
+Opening and closing overlays must not reset the underlying workspace.
+
+**Rule 5 – Reusable Overlay Framework**
+
+The overlay system should be implemented as a reusable application component.
+
+Individual sections should use the same underlying overlay architecture.
+
+**Rule 6 – Chat Session Preservation**
+
+Switching between Chat Sessions must not result in lost conversation history, unsaved input or other session data.
+
+**Rule 7 – Mandatory Narrator**
+
+Every active Chat Session must always contain a Narrator character.
+
+**Rule 8 – User-Controlled Conversation Flow**
+
+The user must be able to identify and select which character speaks next.
+
+**Rule 9 – Consistent Visual Design**
+
+All interfaces must follow the same application-wide dark-mode design language.
+
+---
+
+## 10. Instructions for Recreating the GUI
+
+When recreating the EFMA Base GUI, follow these requirements:
+
+1. Treat Base GUI.png as the primary reference for the overall screen layout.
+2. Use EFMA - Diagram.drawio as supplementary reference for EFMA's modular structure and component organization.
+3. Preserve the intended positioning and hierarchy of the main interface elements.
+4. Use the dark-mode design described in this document.
+5. Do not introduce additional navigation sections without a reason.
+6. Do not remove any of the nine agreed navigation sections.
+7. The Top Navigation Bar must always remain visible.
+8. The Main Workspace must remain persistent.
+9. Do not implement traditional page-based navigation.
+10. Other application sections must open as popups or overlays.
+11. The active Chat Session must remain in the background when overlays are opened.
+12. Preserve the state of the underlying workspace.
+13. The Chat Sessions interface must contain a character portrait area, conversation area, active character sidebar and input area.
+14. The Narrator must always be present in an active Chat Session.
+15. The user must be able to identify and select the next character who should speak.
+16. Character equipment and inventory must be accessible from the active character sidebar.
+17. Design the interface to be modular so that additional functionality can be implemented later.
+
+**Important:** The first objective is to recreate the Base GUI visually and establish its architecture. Do not attempt to implement all application functionality as part of the initial GUI recreation.
+
+The result should be a coherent EFMA application with a persistent workspace, persistent navigation and reusable overlay system that can serve as the foundation for all subsequent EFMA development.

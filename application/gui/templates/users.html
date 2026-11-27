@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ t('users') }}</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - {% if user.is_admin %}{{ t('admin') }}{% else %}{{ t('user') }}{% endif %}</li>
+        {% endfor %}
+    </ul>
+    <h3>{{ t('create_user') }}</h3>
+    <form method="post" action="/users/create">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label for="username">{{ t('username') }}:</label>
+        <input type="text" name="username" required>
+        <label for="password">{{ t('password') }}:</label>
+        <input type="password" name="password" required>
+        <label for="is_admin">{{ t('admin') }}:</label>
+        <select name="is_admin">
+            <option value="false">{{ t('no') }}</option>
+            <option value="true">{{ t('yes') }}</option>
+        </select>
+        <button type="submit">{{ t('create') }}</button>
+    </form>
+{% endblock %}

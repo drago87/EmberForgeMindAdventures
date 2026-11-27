@@ -31,6 +31,72 @@ The planned architecture is built around:
 - Python and FastAPI for the backend.
 - React and TypeScript for the frontend.
 - PySide6 and Qt WebEngine for the desktop application.
+
+## Installation
+Reccomended way is using [Pinokio](https://pinokio.co/) and using the one-click installer [EFMA](https://github.com/drago87/EFMA)
+
+Manual Installation
+The following instructions assume you are on Windows and want to set up the development environment. If you are on macOS or Linux, adjust the commands accordingly.
+
+1. **Python 3.12.x** – EFMA requires Python 3.12. Download and install the latest 3.12.x release from the [official Python website](https://www.python.org/downloads/) and make sure the `python` executable is on your `PATH`.
+
+2. **Create a virtual environment**
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate   # Windows
+   # source .venv/bin/activate  # macOS / Linux
+   ```
+
+3. **Upgrade pip**
+   ```bash
+   pip install --upgrade pip setuptools wheel
+   ```
+
+4. **Install the core dependencies**
+   ```bash
+   # PyTorch with CUDA 13.0 support
+   pip install torch==2.10.0 -f https://download.pytorch.org/whl/cu130
+   pip install torchvision==0.25.0
+   pip install torchaudio==2.10.0
+   pip install triton-windows
+
+   # SageAttention (pre‑built wheel for Windows)
+   pip install https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post5/sageattention-2.2.0+cu130torch2.10.0andhigher.post5-cp310-abi3-win_amd64.whl
+
+   # flash‑attn from the ComfyUI wheels
+   pip install flash-attn -f https://comfy-org.github.io/wheels
+   ```
+
+5. **Additional project‑specific packages** – the project uses FastAPI, uvicorn, Pydantic, SQLAlchemy, etc. Install them via the provided `requirements.txt`:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Run the application** – you can start the web server directly or use Pinokio:
+   ```bash
+   # Web server only
+   python main.py --web
+
+   # Desktop + web
+   python main.py --desktop
+   ```
+
+Feel free to tweak the `requirements.txt` or the install script if you want a different CUDA version or a different set of libraries.
+
+- (The installation commands above are tailored for a Windows environment; on Linux/macOS you should adjust the URLs and packages accordingly.)
+- If you encounter any missing dependencies, consult the error message and install the missing package with `pip install <package>`.
+
+- **Tip**: For a clean environment, consider using Conda or pyenv to manage multiple Python versions.
+
+- **Note**: The `triton-windows` package is a pre‑built binary for Windows that satisfies Triton’s runtime requirements.
+
+- **Prerequisite**: A recent GPU with CUDA 13.0 support is recommended for the best performance of the torch and flash‑attn wheels.
+
+- The `sageattention` wheel is compiled for CP310‑ABI3; if you use a different Python version you will need a matching wheel.
+
+- For more details on each dependency, refer to the official documentation linked in the respective package URLs.
+
+- Happy hacking!
 - SQLite initially, with support for more advanced database setups as the project evolves.
 - Pinokio for installation and application launching.
 

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ t('app_name') }} - {{ t('home') }}</h1>
+    <p>Welcome, {{ request.session.get('user_id') }}!</p>
+{% endblock %}

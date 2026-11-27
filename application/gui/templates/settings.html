@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ t('settings') }}</h2>
+    <form method="post" action="/settings">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label>{{ t('language') }}:
+            <select name="language">
+                {% for code, name in languages.items() %}
+                    <option value="{{ code }}" {% if code == user_language %}selected{% endif %}>{{ name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label>{{ t('theme') }}:
+            <select name="theme">
+                <option value="light" {% if user_theme == 'light' %}selected{% endif %}>{{ t('theme_light') }}</option>
+                <option value="dark" {% if user_theme == 'dark' %}selected{% endif %}>{{ t('theme_dark') }}</option>
+            </select>
+        </label>
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+# Ignore the two existing asset directories
+GUI Sketches & Information/
+Diagrams/
+
+# Ignore logs and databases
+*.log
+*.sql
+*.sqlite
+
+# misc
+env/
