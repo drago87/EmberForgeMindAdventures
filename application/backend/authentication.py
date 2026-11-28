@@ -1,8 +1,6 @@
 import secrets
-from typing import Annotated
 
 from fastapi import Depends, HTTPException, Request, status
-from starlette.middleware.sessions import SessionMiddleware
 
 from ..users.user_manager import get_user_by_id, verify_password, get_admin_user_count
 

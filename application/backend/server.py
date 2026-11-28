@@ -261,7 +261,7 @@ async def login_post(
 
     login_user(request, user.id)
 
-    return RedirectResponse(url="/")
+    return RedirectResponse(url="/", status_code=303)
 
 
 @app.get("/logout")
@@ -294,7 +294,7 @@ async def setup_post(
     csrf_token: str = Form(...),
 ):
     if get_admin_user_count() > 0:
-        return RedirectResponse(url="/login")
+        return RedirectResponse(url="/login", status_code=303)
 
     validate_csrf(request, csrf_token)
 
@@ -361,7 +361,7 @@ async def settings_post(
         theme=theme,
     )
 
-    return RedirectResponse(url="/settings")
+    return RedirectResponse(url="/settings", status_code=303)
 
 
 @app.get("/users", response_class=HTMLResponse)
@@ -406,7 +406,7 @@ async def users_create(
         is_admin=(is_admin.lower() == "true"),
     )
 
-    return RedirectResponse(url="/users")
+    return RedirectResponse(url="/users", status_code=303)
 
 
 # Simple health endpoint for connection status
