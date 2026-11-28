@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="loading-screen"><img src="/static/icons/efma.png" class="loading-icon"></div>
+	{% if is_authenticated %}
     <header id="topbar">
         <div class="left">
             <a href="/" class="icon-button" title="Open GitHub" target="_blank" onclick="openGithub(event)">
@@ -34,10 +35,12 @@
             <div class="settings-icon" onclick="toggleSettingsOverlay(event)">⚙️</div>
         </div>
     </header>
+	{% endif %}
     <main>
         {% block content %}{% endblock %}
     </main>
-
+	
+	{% if is_authenticated %}
     <div id="settings-overlay" class="overlay hidden">
         <div class="overlay-content">
             <h2>{{ t('settings') }}</h2>
@@ -61,5 +64,6 @@
             <button onclick="toggleSettingsOverlay(event)">Close</button>
         </div>
     </div>
+	{% endif %}
 </body>
 </html>

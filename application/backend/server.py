@@ -54,7 +54,7 @@ APP_DIR = BASE_DIR / "application"
 GUI_DIR = APP_DIR / "gui"
 STATIC_DIR = GUI_DIR / "static"
 TEMPLATE_DIR = GUI_DIR / "templates"
-LANG_DIR = APP_DIR / "languages"
+LANG_DIR = BASE_DIR / "languages"
 
 # Load configuration
 CONFIG_PATH = BASE_DIR / "settings.ini"
@@ -124,11 +124,11 @@ async def build_context(request: Request, extra: dict = None, error: str | None 
     t = await get_translation(request)
     lang = request.session.get("lang", get_default_language(config))
     theme = request.session.get("theme", get_default_theme(config))
-    is_admin = False
     user_id = request.session.get("user_id")
-    if user_id:
-        usr = get_user_by_id(user_id)
-        is_admin = usr.is_admin if usr else False
+    current_user = get_user_by_id(user_id) if user_id else None
+
+    is_authenticated = current_user is not None
+    is_admin = current_user.is_admin if current_user else False
     nav_buttons = [
         "nav_chat_sessions",
         "nav_characters",
@@ -147,13 +147,11 @@ async def build_context(request: Request, extra: dict = None, error: str | None 
         "theme": theme,
         "is_admin": is_admin,
         "csrf_token": request.session.get("csrf_token"),
-        "user_icon": None,
+        "user_icon": current_user.icon_path if current_user else None,
         "languages": {k: languages[k]["lang"] for k in languages},
         "nav_buttons": nav_buttons,
+        "is_authenticated": is_authenticated,
     }
-    if user_id:
-        usr = get_user_by_id(user_id)
-        context["user_icon"] = usr.icon_path if usr else None
     if extra:
         context.update(extra)
     if error:
